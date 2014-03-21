@@ -1,7 +1,7 @@
 jisho.org Workflow for Alfred v2
 =====================
 
-Alfred v2 workflow for searching beta.jisho.
+Alfred v2 workflow for searching beta.jisho.org.
 
 ![Alt text](https://dl.dropboxusercontent.com/u/3781820/alfred-jisho-workflow.png?raw=true)
 
@@ -29,3 +29,8 @@ These can be added to the end of your search query. For example, to return words
 
 
 ###[DOWNLOAD](https://github.com/Jeemusu/alfred-jisho-workflow/blob/master/jisho.org.alfredworkflow?raw=true)
+
+
+##TODO
+- Performance improvements.
+- Add compatibility for sentance results.
