@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>jwm.alfred.jisho</string>
+	<key>connections</key>
+	<dict>
+		<key>06CD07A8-9239-4805-A150-2E8CB4DCF66A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1CE537DA-A93F-4B05-8A68-A0FC0667D1DA</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>968E54AF-C0CE-4A44-BCBD-BDED2419CC06</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Open at jisho.org</string>
+			</dict>
+		</array>
+		<key>1CE537DA-A93F-4B05-8A68-A0FC0667D1DA</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>EA866F9F-CD74-42BA-9360-9042AB0EA5E6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>968E54AF-C0CE-4A44-BCBD-BDED2419CC06</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F86F6105-7114-4DD4-AF5C-B371FB18770C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>jeemusu</string>
+	<key>description</key>
+	<string>Search jisho.org</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>jisho.org</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>EA866F9F-CD74-42BA-9360-9042AB0EA5E6</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>$arg = trim( "{query}" );
+$args = explode(",",$arg);
+echo $args[1];</string>
+				<key>type</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>1CE537DA-A93F-4B05-8A68-A0FC0667D1DA</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>jisho</string>
+				<key>runningsubtext</key>
+				<string>Searching for {query}</string>
+				<key>script</key>
+				<string>require('app.php');
+$jisho-&gt;getResults("{query}");</string>
+				<key>subtext</key>
+				<string>Search jisho.org</string>
+				<key>title</key>
+				<string>Jisho.org</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>06CD07A8-9239-4805-A150-2E8CB4DCF66A</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>$arg = trim( "{query}" );
+$args = explode(",",$arg);
+echo $args[0];</string>
+				<key>type</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>968E54AF-C0CE-4A44-BCBD-BDED2419CC06</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>open {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.script</string>
+			<key>uid</key>
+			<string>F86F6105-7114-4DD4-AF5C-B371FB18770C</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Search beta.jisho.org in either English &amp; Japanese like so:
+
+jisho &lt;keyword&gt; #optional_tag
+
+
+List of supported tags:
+
+#common
+#jlpt-n1
+#jlpt-n2
+#jlpt-n3
+#jlpt-n4
+#noun
+#verb
+#adjective
+
+Click a result to copy to clipboard, or hold shift and click to pen the words page at jisho.org</string>
+	<key>uidata</key>
+	<dict>
+		<key>06CD07A8-9239-4805-A150-2E8CB4DCF66A</key>
+		<dict>
+			<key>ypos</key>
+			<real>200</real>
+		</dict>
+		<key>1CE537DA-A93F-4B05-8A68-A0FC0667D1DA</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>968E54AF-C0CE-4A44-BCBD-BDED2419CC06</key>
+		<dict>
+			<key>ypos</key>
+			<real>400</real>
+		</dict>
+		<key>EA866F9F-CD74-42BA-9360-9042AB0EA5E6</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>F86F6105-7114-4DD4-AF5C-B371FB18770C</key>
+		<dict>
+			<key>ypos</key>
+			<real>400</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>twitter.com/jeemusu</string>
+</dict>
+</plist>
