@@ -28,4 +28,4 @@ These can be added to the end of your search query. For example, to return words
 `jisho {query} #common #noun`
 
 
-###[DOWNLOAD]()
+###[DOWNLOAD](https://github.com/Jeemusu/alfred-jisho-workflow/blob/master/jisho.org.alfredworkflow?raw=true)
